@@ -1,0 +1,40 @@
+{% include 'header.html' %}
+<div class="card mb-3">
+          <div class="card-header">
+            <i class="fas fa-table"></i>
+            View Facilities</div>
+          <div class="card-body">
+            <div class="table-responsive">
+              <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                  <tr>
+                    <th>Sno</th>
+                    <th>No of Bed Count</th>
+                    <th>No of Oxygen Cylinder</th>
+                    <th>Available Doctor</th>
+                    <th>Ambulance Detail</th>
+                    <th>Blood Bank</th>
+                    <th>Medical Facilities</th>
+                    <th>Others</th>
+                  </tr>
+                </thead>
+                <tbody> 
+                  {% for i in detail %}
+                  <tr>
+                    <td>{{forloop.counter}}</td>
+                    <td>{{i.bed_detail}}</td>
+                    <td>{{i.cylinder_count}}</td>
+                    <td>{{i.doctor_detail}}</td>
+                    <td>{{i.ambulance}}</td>
+                    <td>{{i.blood_bank}}</td>
+                    <td>{{i.medical_detail}}</td> 
+					<td>{{i.other}}</td> 
+                   
+                  </tr>
+                  {% endfor %}
+                </tbody>
+              </table>
+            </div>
+          </div>
+</div>
+{% include 'footer.html' %}

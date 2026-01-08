@@ -1,0 +1,31 @@
+{% include 'db_header.html' %}
+<style>
+	h4
+	{
+	font-size:20px;
+	color:green;
+	padding:15px 0;
+	}
+</style>
+<div class="container" style="background:#FFF;padding:30px;"><br><br>
+        <h3>Facilities Detail</h3>
+        {% for i in detail %}
+	        <div class="col-md-5 black">
+	        	<h4>Doctor Details </h4>
+				<h5><span class="space">{{i.doctor_detail}}</span></h5>
+	        	<h4>No of Bed Available</h4> 
+				<h5><span class="space">{{i.bed_detail}}</span></h5>
+				<h4>No of Oxygen Available</h4> 
+				<h5><span class="space">{{i.cylinder_count}}</span></h5>
+				<h4> Blood Banks </h4> 
+				<h5><span class="space">{{i.blood_bank}}</span></h5>
+	        	<h4>Medical Equipment Details </h4>
+				<h5><span class="space">{{i.medical_detail}}</span></h5>
+				<h4>Ambulance </h4>
+				<h5><span class="space">{{i.ambulance}}</span></h5>
+				<h4>Others </h4>
+				<h5><span class="space">{{i.other}}</span></h5>
+	        </div>
+	         {% endfor %}
+     
+</div>

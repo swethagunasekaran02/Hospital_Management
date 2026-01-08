@@ -1,0 +1,18 @@
+{% include 'customer_header.html' %}
+<h3 style="color:green;font-size:25px;">Today's Disease Alert</h3>
+{% for i in detail %}
+	<h4>Disease Name: {{i.disease_name}}</h4>
+	<img src="/media/{{i.image}}" style="width:400px;">
+	<h5 style="margin-top:20px;">Problems</h5>
+	<p>{{i.problem}}</p>
+	<h5>Symtoms</h5>
+	<p>{{i.symtoms}}</p>
+	<h5>Spreed Speed: {{i.speed}}</h5>
+	<h5>Precautions</h5>
+	<p>{{i.precautions}}</p>
+	<a class="btn btn-primary" href="{{i.link}}" target="_blank" style="margin-bottom:30px;">
+          <i class="fa fa-book"></i> Read More </a>
+			{% empty %}
+			<h5>No Disease Alert Today</h5>
+{% endfor %}
+{% include 'footer.html' %}

@@ -1,0 +1,43 @@
+{% include 'db_header.html' %}
+
+<div class="container" style="background:#FFF;padding:30px;"><br><br>
+        <form method="get">
+		<div class="row">
+		<div class="col-md-4">
+          <select name="area" class="form-control">
+              <option value="">Select Area</option>
+			  {% for i in a %}
+              <option value="{{i.id}}">{{i.area_name}}</option>
+              {% endfor %}
+            </select>
+		</div>
+		<div class="col-md-4">
+		<input type="number" name="bed_count" class="form-control" Placeholder="No of Bed" required="required">
+		</div>
+		<div class="col-md-4">
+		<input type="number" name="cylinder_count" class="form-control"  Placeholder="No of Oxygen Cylinder" required="required">
+		</div>
+	</div><br><br>
+          <input type="submit" class="btn btn-primary btn-block" value="Search Hospital">
+          
+        </form><br>
+        {% for i in detail %}
+	        <div class="col-md-5 black">
+				<img src="/media/{{i.hospital_id.image}}" width="100%">
+				<div><br></div>
+	        	<h4>Hospital Name : <span class="space">{{i.hospital_id.hospital_name}}</span></h4>
+	        	<h4> Email : <span class="space">{{i.hospital_id.mail}}</span></h4>
+				<h4> Area : <span class="space">{{i.hospital_id.area}}</span></h4>
+	        	<h4>Address </h4>
+	        	<p>{{i.hospital_id.hospital_address}}</p>
+	        	<h4>Mobile : {{i.mobile}}</h4>
+	        	<h5 style="margin-bottom: 15px;">Specialist : {{i.hospital_id.specialist}} </h5>
+	        	
+	        	
+	        	<a href="{% url 'detail' pk=i.hospital_id_id %}" class="btn btn-success">View Facilities</a>
+	        </div>
+	        {% empty %}
+   		{% if request.GET.search %}<h1 style="font-size: 23px;text-align: center;margin-top:100px;">No Hospital Found.....</h1>{% endif %}
+        {% endfor %}
+     
+</div>
