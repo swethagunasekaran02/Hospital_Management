@@ -1,14 +1,14 @@
 {
   "builds": [
     {
-      "src": "HealthCareSector/asgi.py",
+      "src": "HealthCareSector/wsgi.py",
       "use": "@vercel/python"
     }
   ],
   "routes": [
     {
       "src": "/(.*)",
-      "dest": "HealthCareSector/asgi.py"
+      "dest": "HealthCareSector/wsgi.py"
     }
   ]
 }
